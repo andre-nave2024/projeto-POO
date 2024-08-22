@@ -13,8 +13,10 @@ class BancoDeDados
         {
             Console.WriteLine("Pessoa: " + (i + 1));
             Console.WriteLine("Nome: " + pessoas[i].nome);
+            Console.WriteLine("Sobrenome: " + pessoas[i].sobrenome);
             Console.WriteLine("Sexo: " + pessoas[i].sexo);
             Console.WriteLine("Idade: " + pessoas[i].idade);
+            
             Console.WriteLine();
         }
     }

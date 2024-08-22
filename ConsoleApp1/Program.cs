@@ -22,7 +22,8 @@
 
                 Console.WriteLine("Digite o nome da Pessoa:");
                 string nome = Console.ReadLine();
-
+                Console.WriteLine("Digite o sobrenome da Pessoa:");
+                string sobrenome = Console.ReadLine();
                 string sexo = "";
                 Console.WriteLine("Escolha o sexo:");
                 Console.WriteLine("1 - Masculino");
@@ -48,7 +49,7 @@
                 Console.WriteLine("Digite a idade:");
                 int idade = int.Parse(Console.ReadLine());
 
-                Pessoa pessoa = new Pessoa(nome, sexo, idade);
+                Pessoa pessoa = new Pessoa(nome, sexo, idade, sobrenome);
                 banco.SalvarPessoa(pessoa);
             }
             else if (opcao.Key == ConsoleKey.D2)
