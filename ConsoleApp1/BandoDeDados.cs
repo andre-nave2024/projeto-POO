@@ -15,7 +15,6 @@ class BancoDeDados
             Console.WriteLine("Nome: " + pessoas[i].nome);
             Console.WriteLine("Sexo: " + pessoas[i].sexo);
             Console.WriteLine("Idade: " + pessoas[i].idade);
-            Console.WriteLine("Roupa: " + pessoas[i].roupa);
             Console.WriteLine();
         }
     }

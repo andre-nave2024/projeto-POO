@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\aluno\\Desktop\\Tarefa POO\\projeto-POO\\ConsoleApp1\\ConsoleApp1.csproj": {}
+    "c:\\Users\\aluno\\Desktop\\projetoPOO\\ConsoleApp1\\ConsoleApp1.csproj": {}
   },
   "projects": {
-    "C:\\Users\\aluno\\Desktop\\Tarefa POO\\projeto-POO\\ConsoleApp1\\ConsoleApp1.csproj": {
+    "c:\\Users\\aluno\\Desktop\\projetoPOO\\ConsoleApp1\\ConsoleApp1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\aluno\\Desktop\\Tarefa POO\\projeto-POO\\ConsoleApp1\\ConsoleApp1.csproj",
+        "projectUniqueName": "c:\\Users\\aluno\\Desktop\\projetoPOO\\ConsoleApp1\\ConsoleApp1.csproj",
         "projectName": "ConsoleApp1",
-        "projectPath": "C:\\Users\\aluno\\Desktop\\Tarefa POO\\projeto-POO\\ConsoleApp1\\ConsoleApp1.csproj",
+        "projectPath": "c:\\Users\\aluno\\Desktop\\projetoPOO\\ConsoleApp1\\ConsoleApp1.csproj",
         "packagesPath": "C:\\Users\\aluno\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\aluno\\Desktop\\Tarefa POO\\projeto-POO\\ConsoleApp1\\obj\\",
+        "outputPath": "c:\\Users\\aluno\\Desktop\\projetoPOO\\ConsoleApp1\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\aluno\\AppData\\Roaming\\NuGet\\NuGet.Config",
