@@ -43,13 +43,16 @@
                     case 3:
                         sexo = Console.ReadLine();
                         break;
+            
                 }
 
                 Console.WriteLine("Digite a idade:");
                 int idade = int.Parse(Console.ReadLine());
-
-                Pessoa pessoa = new Pessoa(nome, sexo, idade);
+                Console.WriteLine("Digite a roupa:");
+                string roupa = Console.ReadLine();
+                Pessoa pessoa = new Pessoa(nome, sexo, idade, roupa);
                 banco.SalvarPessoa(pessoa);
+
             }
             else if (opcao.Key == ConsoleKey.D2)
             {
