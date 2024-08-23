@@ -1,65 +1,92 @@
 ﻿class Program
 {
+    static ConsoleKeyInfo opcao = new ConsoleKeyInfo();
+    static BancoDeDados banco = new BancoDeDados();
+
     static void Main()
     {
-        ConsoleKeyInfo opcao = new ConsoleKeyInfo();
-        BancoDeDados banco = new BancoDeDados();
 
-        while (opcao.Key != ConsoleKey.D3)
+        while (opcao.Key != ConsoleKey.Escape)
         {
             Console.Clear();
             Console.WriteLine("Bem vindo ao meu Primeiro Banco de Dados!");
             Console.WriteLine("Selecione uma opção:");
-            Console.WriteLine("1 - Cadastrar uma Pessoa");
-            Console.WriteLine("2 - Listar Pessoas");
-            Console.WriteLine("3 - Sair");
+            Console.WriteLine("1 - Gerenciar Pessoas");
+            //Console.WriteLine("2 - Gerenciar ");
+            Console.WriteLine("ESC - Sair");
 
             opcao = Console.ReadKey();
 
             if (opcao.Key == ConsoleKey.D1)
             {
                 Console.Clear();
+                Console.WriteLine("Selecione uma opção:");
+                Console.WriteLine("1 - Adicionar Pessoa");
+                Console.WriteLine("2 - Remover Pessoa");
+                Console.WriteLine("3 - Listar Pessoas");
+                Console.WriteLine("4 - Voltar");
 
-                Console.WriteLine("Digite o nome da Pessoa:");
-                string nome = Console.ReadLine();
+                opcao = Console.ReadKey();
 
-                Console.WriteLine("Digite o CPF:");
-                string cpf = Console.ReadLine();
-                
-                string sexo = "";
-                Console.WriteLine("Escolha o sexo:");
-                Console.WriteLine("1 - Masculino");
-                Console.WriteLine("2 - Feminino");
-                Console.WriteLine("3 - outro");
-
-                int escolha = int.Parse(Console.ReadLine());
-                switch (escolha)
+                switch (opcao.Key)
                 {
-                    case 1:
-                        sexo = "Masculino";
+                    case ConsoleKey.D1:
+                        AdicionarPessoa();
                         break;
 
-                    case 2:
-                        sexo = "Feminino";
+                    case ConsoleKey.D2:
+                        RemoverPessoa();
+                        Console.ReadKey();
                         break;
 
-                    case 3:
-                        sexo = Console.ReadLine();
+                    case ConsoleKey.D3:
+                        banco.ListarPessoas();
+                        Console.ReadKey();
                         break;
                 }
-
-                Console.WriteLine("Digite a idade:");
-                int idade = int.Parse(Console.ReadLine());
-
-                Pessoa pessoa = new Pessoa(nome, cpf, sexo, idade);
-                banco.SalvarPessoa(pessoa);
             }
-            else if (opcao.Key == ConsoleKey.D2)
+            /*else if (opcao.Key == ConsoleKey.D2)
             {
                 Console.Clear();
                 banco.ListarPessoas();
                 Console.ReadKey();
             }
+            */
+        }
+    }
+
+    static void AdicionarPessoa()
+    {
+        Console.Clear();
+        Console.WriteLine("Digite o nome da Pessoa:");
+        string nome = Console.ReadLine();
+        Console.WriteLine("Digite o CPF:");
+        string cpf = Console.ReadLine();
+        Console.WriteLine("Digite a idade:");
+        int idade = int.Parse(Console.ReadLine());
+
+        Pessoa pessoa = new Pessoa(nome, cpf, idade);
+        banco.SalvarPessoa(pessoa);
+    }
+
+    static void RemoverPessoa()
+    {
+        Console.Clear();
+        Console.WriteLine("Digite o cpf da pessoa que você deseja remover:");
+        string cpf = Console.ReadLine();
+
+        Pessoa pessoa = banco.getPessoas().Find(pessoa => pessoa.cpf == cpf);
+
+        if (pessoa == null)
+        {
+            Console.WriteLine("Pessoa não encontrada");
+            System.Threading.Thread.Sleep(1000);
+        }
+        else
+        {
+            Console.Clear();
+            Console.WriteLine($"{pessoa.nome} removido(a) com sucesso");
+            banco.RemoverPessoa(pessoa);
         }
     }
 }
