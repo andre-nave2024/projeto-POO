@@ -22,8 +22,10 @@
 
                 Console.WriteLine("Digite o nome da Pessoa:");
                 string nome = Console.ReadLine();
-                Console.WriteLine("Digite o sobrenome da Pessoa:");
-                string sobrenome = Console.ReadLine();
+
+                Console.WriteLine("Digite o CPF:");
+                string cpf = Console.ReadLine();
+                
                 string sexo = "";
                 Console.WriteLine("Escolha o sexo:");
                 Console.WriteLine("1 - Masculino");
@@ -38,7 +40,7 @@
                         break;
 
                     case 2:
-                        sexo = "Femino";
+                        sexo = "Feminino";
                         break;
 
                     case 3:
@@ -49,14 +51,14 @@
                 Console.WriteLine("Digite a idade:");
                 int idade = int.Parse(Console.ReadLine());
 
-                Pessoa pessoa = new Pessoa(nome, sexo, idade, sobrenome);
+                Pessoa pessoa = new Pessoa(nome, cpf, sexo, idade);
                 banco.SalvarPessoa(pessoa);
             }
             else if (opcao.Key == ConsoleKey.D2)
             {
                 Console.Clear();
                 banco.ListarPessoas();
-                System.Threading.Thread.Sleep(10000);
+                Console.ReadKey();
             }
         }
     }
