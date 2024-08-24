@@ -36,7 +36,6 @@
 
                     case ConsoleKey.D2:
                         RemoverPessoa();
-                        Console.ReadKey();
                         break;
 
                     case ConsoleKey.D3:
@@ -75,7 +74,7 @@
         Console.WriteLine("Digite o cpf da pessoa que você deseja remover:");
         string cpf = Console.ReadLine();
 
-        Pessoa pessoa = banco.getPessoas().Find(pessoa => pessoa.cpf == cpf);
+        Pessoa pessoa = banco.getPessoas().Find(pessoa => pessoa.GetCpf() == cpf);
 
         if (pessoa == null)
         {
@@ -87,6 +86,7 @@
             Console.Clear();
             Console.WriteLine($"{pessoa.nome} removido(a) com sucesso");
             banco.RemoverPessoa(pessoa);
+            System.Threading.Thread.Sleep(2000);
         }
     }
 }

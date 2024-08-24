@@ -5,14 +5,31 @@ class BancoDeDados
     public BancoDeDados()
     {
         Pessoa pessoa = new Pessoa("Andre", "123.456.789-10", 17);
-        SalvarPessoa(pessoa);
+        SalvarPessoa2(pessoa);
         pessoa = new Pessoa("Caio", "321.654.978-01", 20);
-        SalvarPessoa(pessoa);
-        pessoa = new Pessoa("Patrick", "134.456.100-20", 19);
-        SalvarPessoa(pessoa);
+        SalvarPessoa2(pessoa);
+        pessoa = new Pessoa("Robson", "134.456.100-20", 19);
+        SalvarPessoa2(pessoa);
     }
 
     public void SalvarPessoa(Pessoa pessoa)
+    {
+        if(pessoa.isValid() == true)
+        {
+            pessoas.Add(pessoa);
+            Console.Clear();
+            Console.WriteLine("Pessoa adicionada com sucesso!");
+            System.Threading.Thread.Sleep(1000);
+        }
+        else
+        {
+            Console.Clear();
+            Console.WriteLine("Cpf inválido. Pessoa não adicionada!");
+            System.Threading.Thread.Sleep(1000);
+        }
+    }
+
+    public void SalvarPessoa2(Pessoa pessoa)
     {
         pessoas.Add(pessoa);
     }
@@ -29,7 +46,7 @@ class BancoDeDados
         {
             Console.WriteLine("Pessoa " + (i + 1));
             Console.WriteLine("Nome: " + pessoas[i].nome);
-            Console.WriteLine("CPF: " + pessoas[i].cpf);
+            Console.WriteLine("CPF: " + pessoas[i].GetCpf());
             Console.WriteLine("Idade: " + pessoas[i].idade);
             Console.WriteLine();
         }
