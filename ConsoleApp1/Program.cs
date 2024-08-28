@@ -12,7 +12,7 @@
             Console.WriteLine("Bem vindo ao meu Primeiro Banco de Dados!");
             Console.WriteLine("Selecione uma opção:");
             Console.WriteLine("1 - Gerenciar Pessoas");
-            //Console.WriteLine("2 - Gerenciar ");
+            Console.WriteLine("2 - Gerenciar Biblioteca");
             Console.WriteLine("ESC - Sair");
 
             opcao = Console.ReadKey();
@@ -44,14 +44,34 @@
                         break;
                 }
             }
-            /*else if (opcao.Key == ConsoleKey.D2)
+            else if (opcao.Key == ConsoleKey.D2)
             {
                 Console.Clear();
-                banco.ListarPessoas();
-                Console.ReadKey();
+                Console.WriteLine("Selecione uma opção:");
+                Console.WriteLine("1 - Adicionar Livro");
+                Console.WriteLine("2 - Remover Livros");
+                Console.WriteLine("3 - Listar Livros");
+                Console.WriteLine("4 - Voltar");
+
+                opcao = Console.ReadKey();
+                
+                switch (opcao.Key)
+                {
+                    case ConsoleKey.D1:
+                        AdicionarLivros();
+                        break;
+
+                    case ConsoleKey.D2:
+                        break;
+
+                    case ConsoleKey.D3:
+                        banco.ListarLivros();
+                        Console.ReadKey();
+                        break;
+                }
+                
             }
-            */
-        }
+            }
     }
 
     static void AdicionarPessoa()
@@ -89,4 +109,24 @@
             System.Threading.Thread.Sleep(2000);
         }
     }
+    static void AdicionarLivros()
+    {
+        Console.Clear();
+        Console.WriteLine("Digite o Título do livro:");
+        string titulo = Console.ReadLine();
+        Console.WriteLine("Digite o nome do Autor do livro:");
+        string autor = Console.ReadLine();
+        Console.WriteLine("Digite o Ano de Publicação:");
+        int anoDePublicacao = int.Parse(Console.ReadLine());
+        Console.WriteLine("Digite a categoria:");
+        string categoria = Console.ReadLine();
+
+        Livro livro = new Livro(titulo, autor, anoDePublicacao, categoria);
+        banco.SalvarLivro(livro);
+    }
+
+    /*static void AdicionarLivro()
+    {
+
+    }*/
 }

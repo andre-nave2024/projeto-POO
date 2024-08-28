@@ -1,6 +1,7 @@
 class BancoDeDados
 {
     List<Pessoa> pessoas = new List<Pessoa>();
+    List<Livro> livros = new List<Livro>();
 
     public BancoDeDados()
     {
@@ -10,6 +11,8 @@ class BancoDeDados
         SalvarPessoa2(pessoa);
         pessoa = new Pessoa("Robson", "134.456.100-20", 19);
         SalvarPessoa2(pessoa);
+        Livro livro = new Livro("Amigo Imaginário", "Stephen Chbosky", 2019, "Terror");
+        SalvarLivro(livro);
     }
 
     public void SalvarPessoa(Pessoa pessoa)
@@ -33,6 +36,11 @@ class BancoDeDados
     {
         pessoas.Add(pessoa);
     }
+    
+    public void SalvarLivro(Livro livro)
+    {
+        livros.Add(livro);
+    }
 
     public void RemoverPessoa(Pessoa pessoa)
     {
@@ -51,9 +59,23 @@ class BancoDeDados
             Console.WriteLine();
         }
     }
+    public void ListarLivros()
+    {
+        Console.Clear();
+        for (int i = 0; i < livros.Count; i++)
+        {
+            Console.WriteLine("Livro " + (i + 1));
+            Console.WriteLine("Título: " + livros[i].titulo);
+            Console.WriteLine("Autor: " + livros[i].autor);
+            Console.WriteLine("Ano de Publicação: " + livros[i].anoDePublicacao);
+            Console.WriteLine("Categoria: " + livros[i].categoria);
+            Console.WriteLine();
+        }
+    }
 
     public List<Pessoa> getPessoas()
     {
         return pessoas;
     }
+
 }
