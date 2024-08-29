@@ -17,7 +17,7 @@ class BancoDeDados
 
     public void SalvarPessoa(Pessoa pessoa)
     {
-        if(pessoa.isValid() == true)
+        if (pessoa.isValid() == true)
         {
             pessoas.Add(pessoa);
             Console.Clear();
@@ -36,7 +36,7 @@ class BancoDeDados
     {
         pessoas.Add(pessoa);
     }
-    
+
     public void SalvarLivro(Livro livro)
     {
         livros.Add(livro);
@@ -65,6 +65,7 @@ class BancoDeDados
         for (int i = 0; i < livros.Count; i++)
         {
             Console.WriteLine("Livro " + (i + 1));
+            Console.WriteLine("ID: " + livros[i].ID);
             Console.WriteLine("Título: " + livros[i].titulo);
             Console.WriteLine("Autor: " + livros[i].autor);
             Console.WriteLine("Ano de Publicação: " + livros[i].anoDePublicacao);

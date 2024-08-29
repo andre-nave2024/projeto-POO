@@ -1,5 +1,6 @@
 class Livro
 {
+    public string ID;
     public string titulo;
     public string autor;
     public int anoDePublicacao;
@@ -11,6 +12,7 @@ class Livro
         this.autor = autor;
         this.anoDePublicacao = anoDePublicacao;
         this.categoria = categoria;
+        ID = Guid.NewGuid().ToString();
     }
 
 

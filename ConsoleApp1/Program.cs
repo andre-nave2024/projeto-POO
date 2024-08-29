@@ -54,7 +54,7 @@
                 Console.WriteLine("4 - Voltar");
 
                 opcao = Console.ReadKey();
-                
+
                 switch (opcao.Key)
                 {
                     case ConsoleKey.D1:
@@ -69,9 +69,9 @@
                         Console.ReadKey();
                         break;
                 }
-                
+
             }
-            }
+        }
     }
 
     static void AdicionarPessoa()
