@@ -13,6 +13,10 @@ class BancoDeDados
         SalvarPessoa2(pessoa);
         Livro livro = new Livro("Amigo Imaginário", "Stephen Chbosky", 2019, "Terror");
         SalvarLivro(livro);
+        livro = new Livro("Entendendo Algoritmos", "Aditya Y. Bhargava", 2017, "Programação");
+        SalvarLivro(livro);
+        livro = new Livro("Sapiens - Uma breve História da Humanidade", "Yuval Harari", 2011, "História");
+        SalvarLivro(livro);
     }
 
     public void SalvarPessoa(Pessoa pessoa)
@@ -47,6 +51,11 @@ class BancoDeDados
         pessoas.Remove(pessoa);
     }
 
+    public void RemoverLivro(Livro livro)
+    {
+        livros.Remove(livro);
+    }
+
     public void ListarPessoas()
     {
         Console.Clear();
@@ -57,6 +66,7 @@ class BancoDeDados
             Console.WriteLine("CPF: " + pessoas[i].GetCpf());
             Console.WriteLine("Idade: " + pessoas[i].idade);
             Console.WriteLine();
+            Console.WriteLine("---------------------------------------");
         }
     }
     public void ListarLivros()
@@ -65,18 +75,22 @@ class BancoDeDados
         for (int i = 0; i < livros.Count; i++)
         {
             Console.WriteLine("Livro " + (i + 1));
-            Console.WriteLine("ID: " + livros[i].ID);
             Console.WriteLine("Título: " + livros[i].titulo);
             Console.WriteLine("Autor: " + livros[i].autor);
             Console.WriteLine("Ano de Publicação: " + livros[i].anoDePublicacao);
             Console.WriteLine("Categoria: " + livros[i].categoria);
+            Console.WriteLine("ID: " + livros[i].ID);
             Console.WriteLine();
+            Console.WriteLine("----------------------------------------------------------------------------------------");
         }
     }
-
     public List<Pessoa> getPessoas()
     {
         return pessoas;
     }
 
+    public List<Livro> getLivros()
+    {
+        return livros;
+    }
 }
