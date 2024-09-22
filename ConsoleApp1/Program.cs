@@ -64,7 +64,7 @@
                         break;
 
                     case ConsoleKey.D2:
-                        RemoverLivro();
+                        RemoverLivros();
                         break;
 
                     case ConsoleKey.D3:
@@ -120,6 +120,29 @@
             System.Threading.Thread.Sleep(2000);
         }
     }
+
+    static void RemoverLivro()
+    {
+        Console.Clear();
+        Console.WriteLine("Digite o ID do Livro que você deseja remover:");
+        string Id = Console.ReadLine();
+
+        Livro livro = banco.GetLivros().Find(livro => livro.ID == Id);
+
+         if (livro == null)
+        {
+            Console.WriteLine("Livro não encontrado!");
+            System.Threading.Thread.Sleep(1000);
+        }
+        else
+        {
+            Console.Clear();
+            Console.WriteLine($"{livro.titulo} Removido com sucesso!");
+            banco.RemoverLivro(livro);
+            System.Threading.Thread.Sleep(2000);
+        }
+    }
+
     static void AdicionarLivros()
     {
         Console.Clear();
@@ -136,7 +159,7 @@
         banco.SalvarLivro(livro);
     }
 
-    static void RemoverLivro()
+    static void RemoverLivros()
     {
         Console.Clear();
         Console.WriteLine("Digite o Id do livro que você deseja remover:");

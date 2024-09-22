@@ -17,6 +17,10 @@ class BancoDeDados
         SalvarLivro(livro);
         livro = new Livro("A revolução dos bichos", "George Orwell", 1945, "Fábula, Sátira");
         SalvarLivro(livro);
+        livro = new Livro("Entendendo Algoritmos", "Aditya Y. Bhargava", 2017, "Programação");
+        SalvarLivro(livro);
+        livro = new Livro("Sapiens - Uma breve História da Humanidade", "Yuval Harari", 2011, "História");
+        SalvarLivro(livro);
     }
 
     public void SalvarPessoa(Pessoa pessoa)
@@ -67,6 +71,7 @@ class BancoDeDados
             Console.WriteLine("Idade: " + pessoas[i].idade);
              Console.WriteLine("Lendo: " + pessoas[i].livro);
             Console.WriteLine();
+            Console.WriteLine("---------------------------------------");
         }
     }
     public void ListarLivros()
@@ -110,7 +115,6 @@ class BancoDeDados
         livro.status = "Disponível";
         pessoa.livro = "...";
     }
-
     public List<Pessoa> getPessoas()
     {
         return pessoas;
