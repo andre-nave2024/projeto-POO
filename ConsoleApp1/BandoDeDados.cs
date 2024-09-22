@@ -19,8 +19,6 @@ class BancoDeDados
         SalvarLivro(livro);
         livro = new Livro("Entendendo Algoritmos", "Aditya Y. Bhargava", 2017, "Programação");
         SalvarLivro(livro);
-        livro = new Livro("Sapiens - Uma breve História da Humanidade", "Yuval Harari", 2011, "História");
-        SalvarLivro(livro);
     }
 
     public void SalvarPessoa(Pessoa pessoa)
@@ -71,7 +69,6 @@ class BancoDeDados
             Console.WriteLine("Idade: " + pessoas[i].idade);
              Console.WriteLine("Lendo: " + pessoas[i].livro);
             Console.WriteLine();
-            Console.WriteLine("---------------------------------------");
         }
     }
     public void ListarLivros()
@@ -82,9 +79,12 @@ class BancoDeDados
             Console.WriteLine("Livro " + (i + 1));
             Console.WriteLine("ID: " + livros[i].ID);
             Console.WriteLine("Título: " + livros[i].titulo);
+            Console.WriteLine("Autor: " + livros[i].autor);
+            Console.WriteLine("Ano de Publicação: " + livros[i].anoDePublicacao);
+            Console.WriteLine("Categoria: " + livros[i].categoria);
             Console.WriteLine("Status: " + livros[i].status);
-            Console.WriteLine("----------------------------------------------------");
             Console.WriteLine();
+            Console.WriteLine("----------------------------------------------------");
         }
     }
 
@@ -99,6 +99,7 @@ class BancoDeDados
                 Console.WriteLine("Autor: " + livros[i].autor);
                 Console.WriteLine("Ano de Publicação: " + livros[i].anoDePublicacao);
                 Console.WriteLine("Categoria: " + livros[i].categoria);
+                Console.WriteLine("----------------------------------------------------");
                 Console.WriteLine();
             }
         }
@@ -120,7 +121,7 @@ class BancoDeDados
         return pessoas;
     }
 
-    public List<Livro> GetLivros()
+    public List<Livro> getLivros()
     {
         return livros;
     }

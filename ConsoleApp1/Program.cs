@@ -64,7 +64,7 @@
                         break;
 
                     case ConsoleKey.D2:
-                        RemoverLivros();
+                        RemoverLivro();
                         break;
 
                     case ConsoleKey.D3:
@@ -127,7 +127,7 @@
         Console.WriteLine("Digite o ID do Livro que você deseja remover:");
         string Id = Console.ReadLine();
 
-        Livro livro = banco.GetLivros().Find(livro => livro.ID == Id);
+        Livro livro = banco.getLivros().Find(livro => livro.ID == Id);
 
          if (livro == null)
         {
@@ -159,28 +159,6 @@
         banco.SalvarLivro(livro);
     }
 
-    static void RemoverLivros()
-    {
-        Console.Clear();
-        Console.WriteLine("Digite o Id do livro que você deseja remover:");
-        string id = Console.ReadLine();
-
-        Livro livro = banco.GetLivros().Find(livro => livro.ID == id);
-
-        if (livro == null)
-        {
-            Console.WriteLine("Livro não encontrado");
-            System.Threading.Thread.Sleep(1000);
-        }
-        else
-        {
-            Console.Clear();
-            Console.WriteLine($"{livro.titulo} foi removido com sucesso");
-            banco.RemoverLivro(livro);
-            System.Threading.Thread.Sleep(2000);
-        }
-    }
-
     static void EmprestarLivro()
     {
         Console.Clear();
@@ -205,7 +183,7 @@
             Console.WriteLine("Digite o título do livro que você deseja:");
             string title = Console.ReadLine();
 
-            Livro livro = banco.GetLivros().Find(livro => livro.titulo == title);
+            Livro livro = banco.getLivros().Find(livro => livro.titulo == title);
 
             if (livro == null)
             {
@@ -248,7 +226,7 @@
 
         else
         {
-            Livro livro = banco.GetLivros().Find(livro => livro.titulo == pessoa.livro);
+            Livro livro = banco.getLivros().Find(livro => livro.titulo == pessoa.livro);
             
             if (livro == null)
             {
