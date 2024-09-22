@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\halan\\OneDrive\\Área de Trabalho\\POO\\projeto-POO\\projeto-POO\\ConsoleApp1\\ConsoleApp1.csproj",
+      "projectUniqueName": "C:\\Users\\halan\\OneDrive\\Área de Trabalho\\vs-code\\projeto-POO\\ConsoleApp1\\ConsoleApp1.csproj",
       "projectName": "ConsoleApp1",
-      "projectPath": "C:\\Users\\halan\\OneDrive\\Área de Trabalho\\POO\\projeto-POO\\projeto-POO\\ConsoleApp1\\ConsoleApp1.csproj",
+      "projectPath": "C:\\Users\\halan\\OneDrive\\Área de Trabalho\\vs-code\\projeto-POO\\ConsoleApp1\\ConsoleApp1.csproj",
       "packagesPath": "C:\\Users\\halan\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\halan\\OneDrive\\Área de Trabalho\\POO\\projeto-POO\\projeto-POO\\ConsoleApp1\\obj\\",
+      "outputPath": "C:\\Users\\halan\\OneDrive\\Área de Trabalho\\vs-code\\projeto-POO\\ConsoleApp1\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\halan\\AppData\\Roaming\\NuGet\\NuGet.Config"

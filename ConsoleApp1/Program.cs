@@ -9,7 +9,7 @@
         while (opcao.Key != ConsoleKey.Escape)
         {
             Console.Clear();
-            Console.WriteLine("Bem vindo ao meu Primeiro Banco de Dados!");
+            Console.WriteLine("Bem vindo(a)!");
             Console.WriteLine("Selecione uma opção:");
             Console.WriteLine("1 - Gerenciar Pessoas");
             Console.WriteLine("2 - Gerenciar Biblioteca");
@@ -49,9 +49,11 @@
                 Console.Clear();
                 Console.WriteLine("Selecione uma opção:");
                 Console.WriteLine("1 - Adicionar Livro");
-                Console.WriteLine("2 - Remover Livros");
+                Console.WriteLine("2 - Remover Livro");
                 Console.WriteLine("3 - Listar Livros");
-                Console.WriteLine("4 - Voltar");
+                Console.WriteLine("4 - Pegar Livro emprestado");
+                Console.WriteLine("5 - Devolver Livro");
+                Console.WriteLine("6 - Voltar");
 
                 opcao = Console.ReadKey();
 
@@ -62,11 +64,20 @@
                         break;
 
                     case ConsoleKey.D2:
+                        RemoverLivro();
                         break;
 
                     case ConsoleKey.D3:
                         banco.ListarLivros();
                         Console.ReadKey();
+                        break;
+
+                    case ConsoleKey.D4:
+                        EmprestarLivro();
+                        break;
+
+                    case ConsoleKey.D5:
+                        DevolverLivro();
                         break;
                 }
 
@@ -125,8 +136,111 @@
         banco.SalvarLivro(livro);
     }
 
-    /*static void AdicionarLivro()
+    static void RemoverLivro()
     {
+        Console.Clear();
+        Console.WriteLine("Digite o Id do livro que você deseja remover:");
+        string id = Console.ReadLine();
 
-    }*/
+        Livro livro = banco.GetLivros().Find(livro => livro.ID == id);
+
+        if (livro == null)
+        {
+            Console.WriteLine("Livro não encontrado");
+            System.Threading.Thread.Sleep(1000);
+        }
+        else
+        {
+            Console.Clear();
+            Console.WriteLine($"{livro.titulo} foi removido com sucesso");
+            banco.RemoverLivro(livro);
+            System.Threading.Thread.Sleep(2000);
+        }
+    }
+
+    static void EmprestarLivro()
+    {
+        Console.Clear();
+        Console.WriteLine("Digite seu CPF:");
+        string cpf = Console.ReadLine();
+
+        Pessoa pessoa = banco.getPessoas().Find(pessoa => pessoa.GetCpf() == cpf);
+
+        if (pessoa == null)
+        {
+            Console.Clear();
+            Console.WriteLine("Desculpe seu CPF não está cadastrado no banco de dados.");
+            System.Threading.Thread.Sleep(2000);
+        }
+        else
+        {
+            Console.Clear();
+            Console.WriteLine($"Olá {pessoa.nome}! Aqui estão os livros disponíveis:");
+            Console.WriteLine();
+            banco.ListarDisponiveis();
+
+            Console.WriteLine("Digite o título do livro que você deseja:");
+            string title = Console.ReadLine();
+
+            Livro livro = banco.GetLivros().Find(livro => livro.titulo == title);
+
+            if (livro == null)
+            {
+                Console.WriteLine("Desculpe, livro não encontrado");
+                System.Threading.Thread.Sleep(1000);
+            }
+
+            else if (livro.status != "Disponível")
+            {
+                Console.Clear();
+                Console.WriteLine("Oh não! parece que este Livro já foi emprestado");
+                System.Threading.Thread.Sleep(3000);
+            }
+
+            else
+            {
+                Console.Clear();
+                Console.WriteLine($"Ótima escolha {pessoa.nome}!");
+                Console.WriteLine($"{livro.titulo} foi emprestado com sucesso!");
+                banco.AtualizarStatus(livro, pessoa);
+                System.Threading.Thread.Sleep(2000);
+            }
+        }
+    }
+
+    static void DevolverLivro()
+    {
+        Console.Clear();
+        Console.WriteLine("Digite seu CPF:");
+        string cpf = Console.ReadLine();
+
+        Pessoa pessoa = banco.getPessoas().Find(pessoa => pessoa.GetCpf() == cpf);
+
+        if (pessoa == null)
+        {
+            Console.Clear();
+            Console.WriteLine("Desculpe seu CPF não está cadastrado no banco de dados.");
+            System.Threading.Thread.Sleep(2000);
+        }
+
+        else
+        {
+            Livro livro = banco.GetLivros().Find(livro => livro.titulo == pessoa.livro);
+            
+            if (livro == null)
+            {
+                Console.Clear();
+                Console.WriteLine("Você não está lendo nenhum livro!");
+                System.Threading.Thread.Sleep(2000);
+            }
+
+            else 
+            {
+                Console.Clear();
+                Console.WriteLine($"{pessoa.livro} foi devolvido com sucesso!");
+                banco.DevolverLivro(livro, pessoa);
+                System.Threading.Thread.Sleep(2000);
+            }
+        }
+    }
 }

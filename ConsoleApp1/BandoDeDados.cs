@@ -5,13 +5,17 @@ class BancoDeDados
 
     public BancoDeDados()
     {
-        Pessoa pessoa = new Pessoa("Andre", "123.456.789-10", 17);
+        Pessoa pessoa = new Pessoa("André", "123.456.789-10", 17);
         SalvarPessoa2(pessoa);
         pessoa = new Pessoa("Caio", "321.654.978-01", 20);
         SalvarPessoa2(pessoa);
         pessoa = new Pessoa("Robson", "134.456.100-20", 19);
         SalvarPessoa2(pessoa);
         Livro livro = new Livro("Amigo Imaginário", "Stephen Chbosky", 2019, "Terror");
+        SalvarLivro(livro);
+        livro = new Livro("A Garota do Lago", "Charlie Donlea", 2016, "Suspense, Ficção Policial");
+        SalvarLivro(livro);
+        livro = new Livro("A revolução dos bichos", "George Orwell", 1945, "Fábula, Sátira");
         SalvarLivro(livro);
     }
 
@@ -47,6 +51,11 @@ class BancoDeDados
         pessoas.Remove(pessoa);
     }
 
+    public void RemoverLivro(Livro livro)
+    {
+        livros.Remove(livro);
+    }
+
     public void ListarPessoas()
     {
         Console.Clear();
@@ -56,6 +65,7 @@ class BancoDeDados
             Console.WriteLine("Nome: " + pessoas[i].nome);
             Console.WriteLine("CPF: " + pessoas[i].GetCpf());
             Console.WriteLine("Idade: " + pessoas[i].idade);
+             Console.WriteLine("Lendo: " + pessoas[i].livro);
             Console.WriteLine();
         }
     }
@@ -67,11 +77,38 @@ class BancoDeDados
             Console.WriteLine("Livro " + (i + 1));
             Console.WriteLine("ID: " + livros[i].ID);
             Console.WriteLine("Título: " + livros[i].titulo);
-            Console.WriteLine("Autor: " + livros[i].autor);
-            Console.WriteLine("Ano de Publicação: " + livros[i].anoDePublicacao);
-            Console.WriteLine("Categoria: " + livros[i].categoria);
+            Console.WriteLine("Status: " + livros[i].status);
+            Console.WriteLine("----------------------------------------------------");
             Console.WriteLine();
         }
+    }
+
+    public void ListarDisponiveis()
+    {
+        for (int i = 0; i < livros.Count; i++)
+        {
+            if (livros[i].status == "Disponível")
+            {
+                Console.WriteLine("Livro " + (i + 1));
+                Console.WriteLine("Título: " + livros[i].titulo);
+                Console.WriteLine("Autor: " + livros[i].autor);
+                Console.WriteLine("Ano de Publicação: " + livros[i].anoDePublicacao);
+                Console.WriteLine("Categoria: " + livros[i].categoria);
+                Console.WriteLine();
+            }
+        }
+    }
+
+    public void AtualizarStatus(Livro livro, Pessoa pessoa)
+    {
+        livro.status = $"Emprestado para {pessoa.nome}";
+        pessoa.livro = $"{livro.titulo}";
+    }
+
+    public void DevolverLivro(Livro livro, Pessoa pessoa)
+    {
+        livro.status = "Disponível";
+        pessoa.livro = "...";
     }
 
     public List<Pessoa> getPessoas()
@@ -79,4 +116,8 @@ class BancoDeDados
         return pessoas;
     }
 
+    public List<Livro> GetLivros()
+    {
+        return livros;
+    }
 }

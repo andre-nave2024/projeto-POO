@@ -3,6 +3,7 @@ class Pessoa
     public string nome;
     private string cpf;
     public int idade;
+    public string livro = "...";
 
     public Pessoa(string nome, string cpf, int idade)
     {

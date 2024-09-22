@@ -5,6 +5,7 @@ class Livro
     public string autor;
     public int anoDePublicacao;
     public string categoria;
+    public string status = "Disponível";
 
     public Livro(string titulo, string autor, int anoDePublicacao, string categoria)
     {
@@ -14,10 +15,4 @@ class Livro
         this.categoria = categoria;
         ID = Guid.NewGuid().ToString();
     }
-
-
-    /*public bool disponibilidade()
-    {
-        
-    }*/
 }
